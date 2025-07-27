@@ -2,7 +2,8 @@
 
 ## 1. Introduction
 
-This document outlines the technical design and architecture of the YNAB MCP Server. It is intended for developers and system administrators.
+This document outlines the technical design and architecture of the YNAB MCP Server. It is intended for developers and
+system administrators.
 
 ## 2. System Architecture
 
@@ -18,7 +19,8 @@ This document outlines the technical design and architecture of the YNAB MCP Ser
 
 ## 3. Data Model
 
-\[Description of the data model, including entities, attributes, and relationships. An ERD (Entity-Relationship Diagram) is recommended.\]
+\[Description of the data model, including entities, attributes, and relationships. An ERD (Entity-Relationship Diagram)
+is recommended.\]
 
 ### 3.1. Entity-Relationship Diagram
 
@@ -26,9 +28,9 @@ This document outlines the technical design and architecture of the YNAB MCP Ser
 
 ### 3.2. Data Dictionary
 
-| Entity      | Attribute   | Data Type | Description                               |
-|-------------|-------------|-----------|-------------------------------------------|
-| **\[Entity\]**| \[Attribute\] | \[Type\]    | \[Description of the attribute\]            |
+| Entity | Attribute | Data Type | Description |
+|-------------|-------------|-----------|-------------------------------------------| | **\[Entity\]**| \[Attribute\] |
+\[Type\] | \[Description of the attribute\] |
 
 ## 4. API Specification
 

@@ -6,9 +6,10 @@ authors = [
     {name = "Ricardo Arturo Cabral Mejía",email = "me@ricardocabral.io"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 dependencies = [
-    "ynab-api (>=2.0.2,<3.0.0)"
+    "ynab (>=1.6.0,<2.0.0)",
+    "modelcontextprotocol (>=0.1.0,<0.2.0)",
 ]
 
 [tool.poetry]
@@ -19,9 +20,12 @@ ruff = "^0.12.5"
 black = "^25.1.0"
 pre-commit = "^4.2.0"
 mdformat = "^0.7.16"
+mdformat-pyproject = "^0.0.2"
+httpx = "^0.28.1"
 
 [tool.mdformat]
-wrap = "80"
+wrap = 120
+number = true
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

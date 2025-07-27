@@ -26,7 +26,8 @@ The server must be able to:
 
 ## YNAB Philosophy
 
-It is important to understand the YNAB philosophy when working with this project. Please refer to the following resources:
+It is important to understand the YNAB philosophy when working with this project. Please refer to the following
+resources:
 
 - [YNAB's Four Rules](https://www.ynab.com/the-four-rules/)
 - [Why YNAB is Different](https://www.ynab.com/why-ynab-is-different/)

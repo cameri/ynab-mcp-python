@@ -4,22 +4,12 @@ This document outlines the directory structure of the YNAB MCP Server project.
 
 ## Directory Layout
 
-```
+```plain
 .
-├── docs
-│   ├── product.md
-│   ├── requirements.md
-│   └── structure.md
-├── src
-│   └── ynab_mcp_server
-│       ├── __init__.py
-│       └── main.py
-├── tests
-│   └── test_main.py
-├── .gitignore
-├── LICENSE
-├── poetry.lock
-└── pyproject.toml
+├── docs/                                   # Documentation files
+│   └── specs/                              # Specification documents
+├── src/                                    # Source code
+└── tests/                                  # Test files
 ```
 
 ## Key Directories
@@ -30,4 +20,5 @@ This document outlines the directory structure of the YNAB MCP Server project.
 
 ## Environment Management
 
-This project uses `pyenv` to manage Python versions and `poetry` for dependency management. See the `pyproject.toml` file for a list of dependencies.
+This project uses `pyenv` to manage Python versions and `poetry` for dependency management. See the `pyproject.toml`
+file for a list of dependencies.

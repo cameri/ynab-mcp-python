@@ -10,7 +10,9 @@ A Python-based MCP (Machine-readable Co-operation Plan) Server for interfacing w
 
 ## About The Project
 
-This project provides a server that acts as a bridge between a client application and the YNAB API. It is designed to work with both stdio and HTTP transports, making it flexible for various client implementations. The core idea is to provide use-case-driven tools rather than a direct 1-to-1 mapping of YNAB API endpoints.
+This project provides a server that acts as a bridge between a client application and the YNAB API. It is designed to
+work with both stdio and HTTP transports, making it flexible for various client implementations. The core idea is to
+provide use-case-driven tools rather than a direct 1-to-1 mapping of YNAB API endpoints.
 
 We follow a spec-driven development approach. You can find our documentation in the `docs/` directory.
 
@@ -27,20 +29,27 @@ To get a local copy up and running, follow these simple steps.
 ### Installation
 
 1. **Clone the repo**
+
    ```sh
    git clone https://github.com/cameri/ynab-mcp-python.git
    cd ynab-mcp-python
    ```
+
 1. **Set up the Python version**
+
    ```sh
    pyenv install 3.12
    pyenv local 3.12
    ```
+
 1. **Install dependencies**
+
    ```sh
    poetry install
    ```
+
 1. **Install pre-commit hooks**
+
    ```sh
    poetry run pre-commit install
    ```
@@ -63,9 +72,11 @@ poetry run python src/ynab_mcp_server/main.py --transport http
 
 ## Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any
+contributions you make are **greatly appreciated**.
 
-Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting
+pull requests to us.
 
 ## License
 
