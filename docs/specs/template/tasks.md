@@ -22,8 +22,8 @@ This section breaks down the project into smaller, manageable tasks. Each task i
 
 ## 3. Task Dependencies
 
-[Description of the dependencies between tasks. A Gantt chart is recommended.]
+\[Description of the dependencies between tasks. A Gantt chart is recommended.\]
 
 ### 3.1. Gantt Chart
 
-[Gantt chart of the project schedule]
+\[Gantt chart of the project schedule\]

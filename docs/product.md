@@ -8,14 +8,14 @@ The YNAB MCP Server is a Python-based server that acts as a bridge between a cli
 
 ## Features
 
-*   **Data Synchronization:** Keep local data in sync with YNAB.
-*   **Transaction Management:** Create, read, update, and delete transactions.
-*   **Budget Management:** Access and manage budget information.
-*   **Category Management:** Manage spending categories.
+- **Data Synchronization:** Keep local data in sync with YNAB.
+- **Transaction Management:** Create, read, update, and delete transactions.
+- **Budget Management:** Access and manage budget information.
+- **Category Management:** Manage spending categories.
 
 ## Technology Stack
 
-*   **Programming Language:** Python 3.12
-*   **Dependency Management:** Poetry
-*   **Linting & Formatting:** pre-commit, ruff, black
-*   **Testing:** pytest
+- **Programming Language:** Python 3.12
+- **Dependency Management:** Poetry
+- **Linting & Formatting:** pre-commit, ruff, black
+- **Testing:** pytest

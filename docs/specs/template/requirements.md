@@ -6,11 +6,11 @@ This document specifies the functional and non-functional requirements for the Y
 
 ## 2. User Stories
 
-*As a [user type], I want to [perform some action] so that I can [achieve some goal].*
+*As a \[user type\], I want to \[perform some action\] so that I can \[achieve some goal\].*
 
 ### 2.1. User Personas
 
-* **[Persona Name]:** [Description of the persona]
+- **\[Persona Name\]:** \[Description of the persona\]
 
 ## 3. System Requirements
 
@@ -20,18 +20,18 @@ This section details the system's functional requirements using the EARS (Easy A
 
 | ID      | Requirement                                                                 | Rationale                                 |
 |---------|-----------------------------------------------------------------------------|-------------------------------------------|
-| REQ-001 | The system **shall** [do something].                                        | [Explanation of why this is required]     |
-| REQ-002 | While [a specific condition is true], the system **shall** [do something]. | [Explanation of why this is required]     |
+| REQ-001 | The system **shall** \[do something\].                                        | \[Explanation of why this is required\]     |
+| REQ-002 | While \[a specific condition is true\], the system **shall** \[do something\]. | \[Explanation of why this is required\]     |
 
 ### 3.2. Non-Functional Requirements
 
 | ID      | Requirement                                       | Category      | Rationale                                 |
 |---------|---------------------------------------------------|---------------|-------------------------------------------|
-| NFR-001 | The system **shall** be available 99.9% of the time. | Reliability   | [Explanation of why this is required]     |
-| NFR-002 | The system **shall** respond to user requests within 2 seconds. | Performance   | [Explanation of why this is required]     |
+| NFR-001 | The system **shall** be available 99.9% of the time. | Reliability   | \[Explanation of why this is required\]     |
+| NFR-002 | The system **shall** respond to user requests within 2 seconds. | Performance   | \[Explanation of why this is required\]     |
 
 ## 4. Glossary
 
 | Term        | Definition                               |
 |-------------|------------------------------------------|
-| **[Term]**  | [Definition of the term]                 |
+| **\[Term\]**  | \[Definition of the term\]                 |

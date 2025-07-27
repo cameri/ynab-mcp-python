@@ -24,9 +24,9 @@ This document outlines the directory structure of the YNAB MCP Server project.
 
 ## Key Directories
 
-*   **`docs/`**: Contains project documentation.
-*   **`src/ynab_mcp_server/`**: The main source code for the MCP server.
-*   **`tests/`**: Contains tests for the project.
+- **`docs/`**: Contains project documentation.
+- **`src/ynab_mcp_server/`**: The main source code for the MCP server.
+- **`tests/`**: Contains tests for the project.
 
 ## Environment Management
 
