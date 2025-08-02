@@ -44,10 +44,15 @@ To create a new specification document within `docs/specs/`, follow these steps:
 
 ## Spec-Driven Development and EARS Pattern
 
-All new features and significant changes in this project will adhere to a Spec-Driven Development approach, utilizing the Easy Approach to Requirements Syntax (EARS) pattern for defining requirements.
+All new features and significant changes in this project will adhere to a Spec-Driven Development approach, utilizing
+the Easy Approach to Requirements Syntax (EARS) pattern for defining requirements.
 
-- **Spec-Driven Development**: This methodology emphasizes writing detailed specifications before implementation. It ensures a clear understanding of requirements, design, and expected behavior, leading to more robust and maintainable code.
-- **EARS Pattern**: Requirements will be formulated using the EARS pattern (e.g., "WHEN <trigger> IF <precondition> THEN <system response> FOR <feature>"). This structured approach enhances clarity, reduces ambiguity, and facilitates automated testing.
+- **Spec-Driven Development**: This methodology emphasizes writing detailed specifications before implementation. It
+  ensures a clear understanding of requirements, design, and expected behavior, leading to more robust and maintainable
+  code.
+- **EARS Pattern**: Requirements will be formulated using the EARS pattern (e.g., "WHEN <trigger> IF <precondition> THEN
+  <system response> FOR <feature>"). This structured approach enhances clarity, reduces ambiguity, and facilitates
+  automated testing.
 
 By adopting these practices, we aim to improve the quality, consistency, and predictability of our development process.
 

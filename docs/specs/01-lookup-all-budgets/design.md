@@ -2,11 +2,13 @@
 
 ## Tool Implementation
 
-This specification outlines the design for a tool within the YNAB MCP server that, when invoked, will trigger the lookup of all YNAB budgets.
+This specification outlines the design for a tool within the YNAB MCP server that, when invoked, will trigger the lookup
+of all YNAB budgets.
 
-## Interaction with YNAB SDK
+## Interaction with YNAB API
 
-- The `ynab-sdk-python` library will be used to interact with the YNAB API.
-- An instance of `ynab.api.client.Client` will be initialized with the user's YNAB API token.
-- The `client.budgets.get_budgets()` method will be called to retrieve the list of budgets.
-- The tool will return the list of budgets.
+- The tool will make a direct HTTPS request to the YNAB API to retrieve the list of budgets.
+- The endpoint to be used is `https://api.ynab.com/v1/budgets`.
+- The request will be a GET request.
+- The request must be authenticated by including the user's YNAB API token in the `Authorization` header as a Bearer token.
+- The tool will parse the JSON response from the API and return the list of budgets.

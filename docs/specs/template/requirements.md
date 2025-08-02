@@ -22,8 +22,8 @@ notation.
 
 | ID | Requirement | Rationale |
 |---------|-----------------------------------------------------------------------------|-------------------------------------------|
-| REQ-001 | The system **shall** \[do something\]. | \[Explanation of why this is required\] | | REQ-002 | While \[a specific
-condition is true\], the system **shall** \[do something\]. | \[Explanation of why this is required\] |
+| REQ-001 | The system **shall** \[do something\]. | \[Explanation of why this is required\] | | REQ-002 | While \[a
+specific condition is true\], the system **shall** \[do something\]. | \[Explanation of why this is required\] |
 
 ### 3.2. Non-Functional Requirements
 

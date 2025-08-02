@@ -2,7 +2,8 @@
 
 ## 1. Lookup All Budgets
 
-**Description:** Allow the MCP server to retrieve a list of all budgets associated with a given YNAB API token. This is a prerequisite for retrieving details of a specific budget.
+**Description:** Allow the MCP server to retrieve a list of all budgets associated with a given YNAB API token. This is
+a prerequisite for retrieving details of a specific budget.
 
 ## 2. Retrieve Budget Details
 

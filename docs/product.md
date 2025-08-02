@@ -4,7 +4,9 @@ This document describes the YNAB MCP (Model Context Procol) Server.
 
 ## Overview
 
-The YNAB MCP Server is an MCP server for LLMs to interfact with YNAB (You Need A Budget) API and manage budgets, transactions, and categories. It provides a structured way to interact with YNAB data, allowing for efficient data synchronization and management.
+The YNAB MCP Server is an MCP server for LLMs to interact with YNAB (You Need A Budget) API and manage budgets,
+transactions, and categories. It provides a structured way to interact with YNAB data, allowing for efficient data
+synchronization and management.
 
 ## Features
 

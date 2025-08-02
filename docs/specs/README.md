@@ -14,6 +14,7 @@ We will be using the following specifications:
 
 We will be using the templates in the `template` directory to create these specifications.
 
-### Current Specifications
+## Current Specifications
 
-- [01-lookup-all-budgets](01-lookup-all-budgets/requirements.md): Specification for looking up all budgets in a YNAB account.
+- [01-lookup-all-budgets](01-lookup-all-budgets/requirements.md): Specification for looking up all budgets in a YNAB
+  account.

@@ -3,7 +3,7 @@
 ## 1. Introduction
 
 This document outlines the technical design and architecture of the YNAB MCP Server. It is intended for developers and
-system administrators.
+LLMs.
 
 ## 2. System Architecture
 

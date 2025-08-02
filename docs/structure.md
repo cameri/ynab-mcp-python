@@ -8,15 +8,14 @@ This document outlines the directory structure of the YNAB MCP Server project.
 .
 ├── docs/                                   # Documentation files
 │   └── specs/                              # Specification documents
-├── src/                                    # Source code
-└── tests/                                  # Test files
+└── src/                                    # Source code and test files
+    └── ynab_mcp_python/                    # Main source code for the MCP server
 ```
 
 ## Key Directories
 
 - **`docs/`**: Contains project documentation.
-- **`src/ynab_mcp_server/`**: The main source code for the MCP server.
-- **`tests/`**: Contains tests for the project.
+- **`src/ynab_mcp_python/`**: The main source code for the MCP server.
 
 ## Environment Management
 
