@@ -576,57 +576,6 @@ class OpenAPIParser(
                             openapi_version=self.openapi_version,
                         )
 
-                        # Debug: Log available schema definitions
-                        if path_str == "/budgets" and method_upper == "GET":
-                            logger.info(
-                                f"Available schema definitions for GET /budgets: {list(schema_definitions.keys())}"
-                            )
-                            # Check if BudgetSummary references other schemas
-                            budget_summary = schema_definitions.get("BudgetSummary", {})
-                            if budget_summary:
-
-                                def find_refs_in_schema(obj, refs=None):
-                                    if refs is None:
-                                        refs = set()
-                                    if isinstance(obj, dict):
-                                        if "$ref" in obj and isinstance(
-                                            obj["$ref"], str
-                                        ):
-                                            ref_path = obj["$ref"]
-                                            if ref_path.startswith(
-                                                "#/$defs/"
-                                            ) or ref_path.startswith(
-                                                "#/components/schemas/"
-                                            ):
-                                                schema_name = ref_path.split("/")[-1]
-                                                refs.add(schema_name)
-                                        for v in obj.values():
-                                            find_refs_in_schema(v, refs)
-                                    elif isinstance(obj, list):
-                                        for item in obj:
-                                            find_refs_in_schema(item, refs)
-                                    return refs
-
-                                refs_in_budget_summary = find_refs_in_schema(
-                                    budget_summary
-                                )
-                                logger.info(
-                                    f"BudgetSummary references these schemas: {refs_in_budget_summary}"
-                                )
-
-                                # Check if those referenced schemas exist in schema_definitions
-                                missing_schemas = refs_in_budget_summary - set(
-                                    schema_definitions.keys()
-                                )
-                                if missing_schemas:
-                                    logger.warning(
-                                        f"Missing schema definitions: {missing_schemas}"
-                                    )
-                                else:
-                                    logger.info(
-                                        "All referenced schemas are available in schema_definitions"
-                                    )
-
                         # Pre-calculate schema and parameter mapping for performance
                         try:
                             flat_schema, param_map = _combine_schemas_and_map_params(
@@ -645,57 +594,8 @@ class OpenAPIParser(
                             }
                             route.parameter_map = {}
                         routes.append(route)
-
-                        # Log schema information for debugging
-                        schema_info = []
-                        if route.flat_param_schema and route.flat_param_schema.get(
-                            "$defs"
-                        ):
-                            schema_names = list(route.flat_param_schema["$defs"].keys())
-                            schema_info.append(f"input schemas: {schema_names}")
-
-                        # Check output schemas in responses
-                        output_schemas = []
-                        for status_code, response in route.responses.items():
-                            if response.content_schema:
-                                for (
-                                    content_type,
-                                    schema,
-                                ) in response.content_schema.items():
-                                    # Look for direct $ref references in the schema since $defs might not be populated yet
-                                    def find_schema_refs(obj):
-                                        refs = set()
-                                        if isinstance(obj, dict):
-                                            if "$ref" in obj and isinstance(
-                                                obj["$ref"], str
-                                            ):
-                                                ref_path = obj["$ref"]
-                                                if ref_path.startswith("#/$defs/"):
-                                                    refs.add(ref_path.split("/")[-1])
-                                            for v in obj.values():
-                                                refs.update(find_schema_refs(v))
-                                        elif isinstance(obj, list):
-                                            for item in obj:
-                                                refs.update(find_schema_refs(item))
-                                        return refs
-
-                                    schema_refs = find_schema_refs(schema)
-                                    output_schemas.extend(schema_refs)
-
-                                    # Also check if $defs is already populated
-                                    if schema.get("$defs"):
-                                        output_schemas.extend(schema["$defs"].keys())
-
-                        if output_schemas:
-                            schema_info.append(
-                                f"output schemas: {list(set(output_schemas))}"
-                            )
-
-                        schema_detail = (
-                            f" ({', '.join(schema_info)})" if schema_info else ""
-                        )
                         logger.info(
-                            f"Successfully extracted route: {method_upper} {path_str}{schema_detail}"
+                            f"Successfully extracted route: {method_upper} {path_str}"
                         )
                     except ValueError as op_error:
                         # Re-raise ValueError for external reference errors

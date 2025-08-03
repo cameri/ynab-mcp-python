@@ -320,9 +320,8 @@ def _combine_schemas_and_map_params(
     if result.get("additionalProperties") is False:
         result.pop("additionalProperties")
 
-    # Remove unused definitions (recursive approach - check refs in used definitions too)
+    # Remove unused definitions (lightweight approach - just check direct $ref usage)
     if "$defs" in result:
-        logger.info("Remove unused definitions from schema")
         used_refs = set()
 
         def find_refs_in_value(value):
@@ -341,16 +340,6 @@ def _combine_schemas_and_map_params(
         for key, value in result.items():
             if key != "$defs":
                 find_refs_in_value(value)
-
-        # Recursively find refs in referenced definitions
-        # Keep adding newly found refs until no more are discovered
-        prev_used_count = 0
-        while len(used_refs) > prev_used_count:
-            prev_used_count = len(used_refs)
-            current_refs = used_refs.copy()
-            for ref_name in current_refs:
-                if ref_name in result["$defs"]:
-                    find_refs_in_value(result["$defs"][ref_name])
 
         # Remove unused definitions
         if used_refs:
@@ -504,7 +493,7 @@ def extract_output_schema_from_responses(
     if output_schema.get("additionalProperties") is False:
         output_schema.pop("additionalProperties")
 
-    # Remove unused definitions (recursive approach - check refs in used definitions too)
+    # Remove unused definitions (lightweight approach - just check direct $ref usage)
     if "$defs" in output_schema:
         used_refs = set()
 
@@ -524,16 +513,6 @@ def extract_output_schema_from_responses(
         for key, value in output_schema.items():
             if key != "$defs":
                 find_refs_in_value(value)
-
-        # Recursively find refs in referenced definitions
-        # Keep adding newly found refs until no more are discovered
-        prev_used_count = 0
-        while len(used_refs) > prev_used_count:
-            prev_used_count = len(used_refs)
-            current_refs = used_refs.copy()
-            for ref_name in current_refs:
-                if ref_name in output_schema["$defs"]:
-                    find_refs_in_value(output_schema["$defs"][ref_name])
 
         # Remove unused definitions
         if used_refs:
