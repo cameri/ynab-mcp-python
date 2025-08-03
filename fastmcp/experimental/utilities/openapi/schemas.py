@@ -5,6 +5,7 @@ from typing import Any
 from fastmcp.utilities.logging import get_logger
 
 from .models import HTTPRoute, JsonSchema, ResponseInfo
+from .schemas_patch import add_schema_definitions_and_prune_unused
 
 logger = get_logger(__name__)
 
@@ -220,7 +221,7 @@ def _combine_schemas_and_map_params(
     parameter_map = {}  # Track mapping from flat arg names to OpenAPI locations
 
     # First pass: collect parameter names by location and body properties
-    param_names_by_location = {
+    param_names_by_location: dict[str, set[str]] = {
         "path": set(),
         "query": set(),
         "header": set(),
@@ -312,44 +313,9 @@ def _combine_schemas_and_map_params(
         "properties": properties,
         "required": required,
     }
-    # Add schema definitions if available
-    if route.schema_definitions:
-        result["$defs"] = route.schema_definitions.copy()
 
-    # Use lightweight compression - prune additionalProperties and unused definitions
-    if result.get("additionalProperties") is False:
-        result.pop("additionalProperties")
-
-    # Remove unused definitions (lightweight approach - just check direct $ref usage)
-    if "$defs" in result:
-        used_refs = set()
-
-        def find_refs_in_value(value):
-            if isinstance(value, dict):
-                if "$ref" in value and isinstance(value["$ref"], str):
-                    ref = value["$ref"]
-                    if ref.startswith("#/$defs/"):
-                        used_refs.add(ref.split("/")[-1])
-                for v in value.values():
-                    find_refs_in_value(v)
-            elif isinstance(value, list):
-                for item in value:
-                    find_refs_in_value(item)
-
-        # Find refs in the main schema (excluding $defs section)
-        for key, value in result.items():
-            if key != "$defs":
-                find_refs_in_value(value)
-
-        # Remove unused definitions
-        if used_refs:
-            result["$defs"] = {
-                name: def_schema
-                for name, def_schema in result["$defs"].items()
-                if name in used_refs
-            }
-        else:
-            result.pop("$defs")
+    # Add schema definitions and prune unused ones
+    add_schema_definitions_and_prune_unused(result, route.schema_definitions)
 
     return result, parameter_map
 
@@ -487,42 +453,12 @@ def extract_output_schema_from_responses(
                 )
             else:
                 processed_defs[def_name] = def_schema
-        output_schema["$defs"] = processed_defs
 
-    # Use lightweight compression - prune additionalProperties and unused definitions
-    if output_schema.get("additionalProperties") is False:
-        output_schema.pop("additionalProperties")
-
-    # Remove unused definitions (lightweight approach - just check direct $ref usage)
-    if "$defs" in output_schema:
-        used_refs = set()
-
-        def find_refs_in_value(value):
-            if isinstance(value, dict):
-                if "$ref" in value and isinstance(value["$ref"], str):
-                    ref = value["$ref"]
-                    if ref.startswith("#/$defs/"):
-                        used_refs.add(ref.split("/")[-1])
-                for v in value.values():
-                    find_refs_in_value(v)
-            elif isinstance(value, list):
-                for item in value:
-                    find_refs_in_value(item)
-
-        # Find refs in the main schema (excluding $defs section)
-        for key, value in output_schema.items():
-            if key != "$defs":
-                find_refs_in_value(value)
-
-        # Remove unused definitions
-        if used_refs:
-            output_schema["$defs"] = {
-                name: def_schema
-                for name, def_schema in output_schema["$defs"].items()
-                if name in used_refs
-            }
-        else:
-            output_schema.pop("$defs")
+        # Add processed definitions and prune unused ones
+        add_schema_definitions_and_prune_unused(output_schema, processed_defs)
+    else:
+        # Just prune additionalProperties if no definitions to add
+        add_schema_definitions_and_prune_unused(output_schema, None)
 
     return output_schema
 
