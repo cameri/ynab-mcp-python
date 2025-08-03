@@ -16,7 +16,9 @@ client = httpx.AsyncClient(
 )
 
 mcp = FastMCP.from_openapi(
-    openapi_spec=openapi_spec, client=client, name="YNAB MCP Server"
+    openapi_spec=openapi_spec,
+    client=client,
+    name="YNAB MCP Server",
 )
 
 if __name__ == "__main__":

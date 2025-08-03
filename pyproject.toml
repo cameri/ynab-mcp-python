@@ -25,6 +25,7 @@ mdformat = "^0.7.16"
 mdformat-pyproject = "^0.0.2"
 httpx = "^0.28.1"
 poethepoet = "^0.25.0"
+types-pyyaml = "^6.0.12.20250516"
 
 [tool.mdformat]
 wrap = 120

@@ -33,5 +33,8 @@ ENV FASTMCP_EXPERIMENTAL_ENABLE_NEW_OPEN_API_PARSER=true
 COPY src/ /app/src/
 COPY open_api_spec.yaml /app/
 
+# Patch fastmcp
+COPY fastmcp /app/.venv/lib/python3.12/site-packages/fastmcp
+
 # Run the application
 CMD ["fastmcp", "run", "src/ynab_mcp_python/server.py"]

@@ -209,3 +209,6 @@ __marimo__/
 
 # Gemini
 .gemini/settings.json
+
+# Misc
+.DS_Store
